@@ -1,5 +1,5 @@
 import logging
-from argparse import ArgumentParser
+from argparse import ArgumentParser, RawTextHelpFormatter
 from os import remove
 from re import search, findall
 from typing import List, Tuple
@@ -63,10 +63,11 @@ if __name__ == "__main__":
     pattern = r".*(jpe?g|png)"
     parser = ArgumentParser(
         prog=f"Script to convert {pattern} files to pdf",
-        description=f"Search {pattern} files from the directory. "
-                    f"Named files must contain digits for order append to pdf. "
+        description=f"Search {pattern} files from the directory.\n"
+                    f"Named files must contain digits for order append to pdf.\n"
                     f"Result pdf file: <path to folder>.pdf",
         epilog=f"For example: python {Path(__file__).name} -d ./images",
+        formatter_class=RawTextHelpFormatter
     )
     parser.add_argument("-d", "--dir", type=str,
                         help="directory with images")
