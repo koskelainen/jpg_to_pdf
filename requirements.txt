@@ -1,0 +1,4 @@
+fpdf
+Pillow
+natsort
+pathlib3x
